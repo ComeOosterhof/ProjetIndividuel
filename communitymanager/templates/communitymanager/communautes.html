@@ -9,9 +9,20 @@
 <h1>Voici la liste des communautés disponibles</h1>
 
 <ul>
-{% for communaute in communautes %}
- <li>{{ communaute }}</li>
+
+<h2> Voici la liste des communautés auxquelles vous êtes abonné </h2>
+
+{% for communaute in current_communities %}
+        <li>{{ communaute }} Abonné </li>
 {% endfor %}
+
+<h2> Voici la liste des communautés auxquelles vous pouvez vous abonner </h2>
+
+{% for communaute in other_communities %}
+        <li>{{ communaute }} S'abonner </li>
+{% endfor %}
+
+
 </ul>
 
 
