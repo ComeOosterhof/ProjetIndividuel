@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{{ post.titre }} &nbsp;&nbsp;
+{{ post.description }} &nbsp;&nbsp;
+Posted on
+{{ post.communaute }} &nbsp;&nbsp;
+By
+{{ post.auteur }} &nbsp;&nbsp;
+On
+{{ post.date_creation }} &nbsp;&nbsp;
+
+{% if commentaires|length  == 0 %}
+    Be the first to comment on that post !
+{%  else %}
+    {% for commentaire in commentaires %}
+        <li>{{ commentaire.auteur }} {{ commentaire.contenu }} </li>
+    {% endfor %}
+{%  endif %}
+
+</body>
+</html>

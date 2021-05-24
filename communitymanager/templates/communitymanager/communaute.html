@@ -9,7 +9,7 @@
 <h1>Voici la liste des posts de la communauté {{communaute.nom}} </h1>
 
 {% for post in posts %}
-        <li>{{ post }}  </li>
+    <a href="{%  url 'post' post.id %}"> <li>{{ post }}  </li> </a>
 {% endfor %}
 
 </body>
