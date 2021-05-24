@@ -13,13 +13,13 @@
 <h2> Voici la liste des communautés auxquelles vous êtes abonné </h2>
 
 {% for communaute in current_communities %}
-        <li>{{ communaute }} Abonné </li>
+    <a href="{%  url 'communaute' communaute.id %}"> <li>{{ communaute }} </li>  </a>>  Abonné
 {% endfor %}
 
 <h2> Voici la liste des communautés auxquelles vous pouvez vous abonner </h2>
 
 {% for communaute in other_communities %}
-        <li>{{ communaute }} S'abonner </li>
+    <a href="{%  url 'communaute' communaute.id %}"> <li>{{ communaute }} </li> </a>   S'abonner
 {% endfor %}
 
 
