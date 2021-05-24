@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from datetime import datetime
 
 # Create your views here.
-from communitymanager.models import Communaute
+from communitymanager.models import Communaute, Post
 
 
 def communautes(request):
@@ -18,3 +18,10 @@ def communautes(request):
             other_communities.append(communaute)
 
     return render(request, 'communitymanager/communautes.html', locals())
+
+
+def communaute(request, id):
+    communaute = get_object_or_404(Communaute, id=id)
+    posts = Post.objects.filter(communaute=communaute)
+
+    return render(request, 'communitymanager/communaute.html', locals())
