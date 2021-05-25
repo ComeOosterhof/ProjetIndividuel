@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from datetime import datetime
 
 # Create your views here.
-from communitymanager.forms import PostForm
+from communitymanager.forms import PostForm, CommentaireForm
 from communitymanager.models import Communaute, Post, Commentaire
 
 
@@ -69,3 +69,25 @@ def modif_post(request, id):
         form = PostForm(instance=post)
 
     return render(request, 'communitymanager/modif_post.html', locals())
+
+
+def nouveau_commentaire(request, id):
+    form = CommentaireForm(request.POST or None)
+
+    post = get_object_or_404(Post, id=id)
+    auteur = request.user
+
+    if form.is_valid():
+        contenu = form.cleaned_data['contenu']
+
+        commentaire = form.save(commit=False)
+        commentaire.auteur = auteur
+        commentaire.post = post
+
+        commentaire.save()
+
+        return redirect('post', post.id)
+
+    return render(request, 'communitymanager/nouveau_commentaire.html', locals())
+
+

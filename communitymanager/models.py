@@ -20,7 +20,6 @@ class Priorite(models.Model):
         return self.label
 
 
-
 class Post(models.Model):
     titre = models.CharField(max_length=50, default='title')
     priorite = models.ForeignKey('Priorite', on_delete=models.CASCADE)
@@ -40,7 +39,6 @@ class Post(models.Model):
 
 
 class Commentaire(models.Model):
-
     contenu = models.TextField(null=True)
     date_creation = models.DateTimeField(default=timezone.now, verbose_name="Date de création")
     auteur = models.ForeignKey(User, on_delete=models.CASCADE)

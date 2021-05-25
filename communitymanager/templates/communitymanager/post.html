@@ -19,11 +19,13 @@ On
     Be the first to comment on that post !
 {%  else %}
     {% for commentaire in commentaires %}
-        <li>{{ commentaire.auteur }} {{ commentaire.contenu }} </li>
+        <li>{{ commentaire.auteur }} {{ commentaire.contenu }} </li> posté le {{ commentaire.date_creation }} par {{ commentaire.auteur }}
     {% endfor %}
 {%  endif %}
 
-Ajouter un commentaire
+
+<a href="{%  url 'nouveau_commentaire' post.id %}" > Ajouter un commentaire </a>
+
 
 </body>
 </html>
