@@ -55,3 +55,17 @@ def nouveau_post(request):
         return redirect('post', post.id)
 
     return render(request, 'communitymanager/nouveau_post.html', locals())
+
+
+def modif_post(request, id):
+    post = get_object_or_404(Post, id=id)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post', post.id)
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'communitymanager/modif_post.html', locals())
