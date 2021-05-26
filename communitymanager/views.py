@@ -105,3 +105,12 @@ def abonnement(request, id):
     communaute.save()
 
     return render(request, 'communitymanager/abonnement.html', locals())
+
+
+@login_required
+def desabonnement(request, id):
+    communaute = get_object_or_404(Communaute, id=id)
+    communaute.abonnes.remove(request.user)
+    communaute.save()
+
+    return render(request, 'communitymanager/desabonnement.html', locals())
