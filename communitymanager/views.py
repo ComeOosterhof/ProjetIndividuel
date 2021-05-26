@@ -40,10 +40,6 @@ def post(request, id):
     utilisateur = request.user
     auteur = post.auteur
 
-    peut_modifier = False
-    if utilisateur == auteur:
-        peut_modifier = True
-
     return render(request, 'communitymanager/post.html', locals())
 
 
@@ -126,3 +122,19 @@ def desabonnement(request, id):
     communaute.save()
 
     return render(request, 'communitymanager/desabonnement.html', locals())
+
+
+@login_required
+def modif_commentaire(request, id):
+    commentaire = get_object_or_404(Commentaire, id=id)
+    post = commentaire.post
+
+    if request.method == 'POST':
+        form = CommentaireForm(request.POST, instance=commentaire)
+        if form.is_valid():
+            form.save()
+            return redirect('post', post.id)
+    else:
+        form = CommentaireForm(instance=commentaire)
+
+    return render(request, 'communitymanager/modif_commentaire.html', locals())

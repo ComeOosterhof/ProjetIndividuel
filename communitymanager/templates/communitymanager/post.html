@@ -15,19 +15,24 @@ By
 On
 {{ post.date_creation }} &nbsp;&nbsp;
 
+{% if utilisateur  == auteur %}
+
+    <a href="{%  url 'modif_post' post.id %}" > Modifier le post </a>
+
+{%  endif %}
+
 {% if commentaires|length  == 0 %}
     Be the first to comment on that post !
 {%  else %}
     {% for commentaire in commentaires %}
         <li>{{ commentaire.auteur }} {{ commentaire.contenu }} </li> posté le {{ commentaire.date_creation }} par {{ commentaire.auteur }}
+        {% if commentaire.auteur == utilisateur %}
+            <a href="{%  url 'modif_commentaire' commentaire.id %}" > Modifier le commentaire </a>
+        {% endif %}
     {% endfor %}
 {%  endif %}
 
-{% if peut_modifier  == True %}
 
-    <a href="{%  url 'modif_post' post.id %}" > Modifier le post </a>
-
-{%  endif %}
 
 <a href="{%  url 'nouveau_commentaire' post.id %}" > Ajouter un commentaire </a>
 
