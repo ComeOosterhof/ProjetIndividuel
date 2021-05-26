@@ -23,10 +23,12 @@ On
     Be the first to comment on that post !
 {%  else %}
     {% for commentaire in commentaires %}
+        <p>
         <li>{{ commentaire.auteur }} {{ commentaire.contenu }} </li> posté le {{ commentaire.date_creation }} par {{ commentaire.auteur }}
         {% if commentaire.auteur == utilisateur %}
             <a href="{%  url 'modif_commentaire' commentaire.id %}" > Modifier le commentaire </a>
         {% endif %}
+        </p>
     {% endfor %}
 {%  endif %}
 

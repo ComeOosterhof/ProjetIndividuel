@@ -11,15 +11,19 @@
 <h2> Voici la liste des communautés auxquelles vous êtes abonné </h2>
 
 {% for communaute in current_communities %}
+    <p>
     <a href="{%  url 'communaute' communaute.id %}"> <li>{{ communaute }} </li>  </a>>  Abonné.
     <a href="{%  url 'desabonnement' communaute.id %}">   Cliquez ici pour vous desabonner </a>
+    </p>
 {% endfor %}
 
 <h2> Voici la liste des communautés auxquelles vous pouvez vous abonner </h2>
 
 {% for communaute in other_communities %}
+    <p>
     <a href="{%  url 'communaute' communaute.id %}"> <li>{{ communaute }} </li> </a>
     <a href="{%  url 'abonnement' communaute.id %}">   S'abonner </a>
+    </p>
 {% endfor %}
 
 

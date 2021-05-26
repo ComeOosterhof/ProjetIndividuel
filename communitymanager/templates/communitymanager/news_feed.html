@@ -7,7 +7,8 @@
 <h1> Voici votre fil d'actualité </h1>
 
 {% for post in posts %}
-<li>
+
+<p>
 
 <a href="{%  url 'post' post.id %}"> {{ post.titre }}  </a>&nbsp;&nbsp;
 {{ post.description }} &nbsp;&nbsp;
@@ -16,7 +17,7 @@ Posted on
 By
 {{ post.auteur }} &nbsp;&nbsp;
 On
-{{ post.date_creation }} &nbsp;&nbsp;</li>
+{{ post.date_creation }} &nbsp;</p>
 {%  endfor %}
 
 {%  endblock %}

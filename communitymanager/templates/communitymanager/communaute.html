@@ -6,10 +6,14 @@
 
 <h1>Voici la liste des posts de la communauté {{communaute.nom}} </h1>
 
+<a href="{%  url 'nouveau_post' communaute.id %}"> Ajouter un nouveau post </a>
+
 {% for post in posts %}
-    <a href="{%  url 'post' post.id %}"> <li>{{ post }}  </li> </a>
+    <p>
+     <a href="{%  url 'post' post.id %}"> <li>{{ post }}  </li> </a>
+    </p>
 {% endfor %}
 
-<a href="{%  url 'nouveau_post' communaute.id %}"> Ajouter un nouveau post </a>
+
 
 {%  endblock %}
