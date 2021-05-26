@@ -33,8 +33,16 @@ def communaute(request, id):
 
 @login_required
 def post(request, id):
+
     post = get_object_or_404(Post, id=id)
     commentaires = Commentaire.objects.filter(post=post)
+
+    utilisateur = request.user
+    auteur = post.auteur
+
+    peut_modifier = False
+    if utilisateur == auteur:
+        peut_modifier = True
 
     return render(request, 'communitymanager/post.html', locals())
 

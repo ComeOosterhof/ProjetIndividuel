@@ -23,6 +23,11 @@ On
     {% endfor %}
 {%  endif %}
 
+{% if peut_modifier  == True %}
+
+    <a href="{%  url 'modif_post' post.id %}" > Modifier le post </a>
+
+{%  endif %}
 
 <a href="{%  url 'nouveau_commentaire' post.id %}" > Ajouter un commentaire </a>
 
