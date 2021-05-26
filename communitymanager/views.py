@@ -138,3 +138,13 @@ def modif_commentaire(request, id):
         form = CommentaireForm(instance=commentaire)
 
     return render(request, 'communitymanager/modif_commentaire.html', locals())
+
+
+
+@login_required
+def news_feed(request):
+    utilisateur = request.user
+    communautes = Communaute.objects.filter(abonnes=utilisateur)
+    posts = Post.objects.filter(communaute__in=communautes).order_by('date_creation').reverse()
+
+    return render(request, 'communitymanager/news_feed.html', locals())

@@ -10,5 +10,6 @@ urlpatterns = [
     path('nouveau_commentaire/<id>', views.nouveau_commentaire, name='nouveau_commentaire'),
     path('abonnement/<id>', views.abonnement, name='abonnement'),
     path('desabonnement/<id>', views.desabonnement, name='desabonnement'),
-    path('modif_commentaire/<id>', views.modif_commentaire, name='modif_commentaire')
+    path('modif_commentaire/<id>', views.modif_commentaire, name='modif_commentaire'),
+    path('news_feed', views.news_feed, name='news_feed')
 ]
