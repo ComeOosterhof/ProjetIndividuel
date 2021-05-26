@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from datetime import datetime
@@ -7,13 +8,14 @@ from communitymanager.forms import PostForm, CommentaireForm
 from communitymanager.models import Communaute, Post, Commentaire
 
 
+@login_required
 def communautes(request):
     communautes = Communaute.objects.all()
     current_user = request.user
     current_communities = []
     other_communities = []
     for communaute in communautes:
-        if Communaute.objects.filter(id=current_user.id).exists():
+        if current_user in communaute.abonnes.all():
             current_communities.append(communaute)
         else:
             other_communities.append(communaute)
@@ -21,6 +23,7 @@ def communautes(request):
     return render(request, 'communitymanager/communautes.html', locals())
 
 
+@login_required
 def communaute(request, id):
     communaute = get_object_or_404(Communaute, id=id)
     posts = Post.objects.filter(communaute=communaute)
@@ -28,6 +31,7 @@ def communaute(request, id):
     return render(request, 'communitymanager/communaute.html', locals())
 
 
+@login_required
 def post(request, id):
     post = get_object_or_404(Post, id=id)
     commentaires = Commentaire.objects.filter(post=post)
@@ -35,6 +39,7 @@ def post(request, id):
     return render(request, 'communitymanager/post.html', locals())
 
 
+@login_required
 def nouveau_post(request):
     form = PostForm(request.POST or None)
 
@@ -57,6 +62,7 @@ def nouveau_post(request):
     return render(request, 'communitymanager/nouveau_post.html', locals())
 
 
+@login_required
 def modif_post(request, id):
     post = get_object_or_404(Post, id=id)
 
@@ -71,6 +77,7 @@ def modif_post(request, id):
     return render(request, 'communitymanager/modif_post.html', locals())
 
 
+@login_required
 def nouveau_commentaire(request, id):
     form = CommentaireForm(request.POST or None)
 
@@ -91,3 +98,10 @@ def nouveau_commentaire(request, id):
     return render(request, 'communitymanager/nouveau_commentaire.html', locals())
 
 
+@login_required
+def abonnement(request, id):
+    communaute = get_object_or_404(Communaute, id=id)
+    communaute.abonnes.add(request.user)
+    communaute.save()
+
+    return render(request, 'communitymanager/abonnement.html', locals())

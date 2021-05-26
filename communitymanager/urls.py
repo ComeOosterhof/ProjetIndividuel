@@ -7,5 +7,6 @@ urlpatterns = [
     path('post/<id>', views.post, name='post'),
     path('nouveau_post', views.nouveau_post, name='nouveau_post'),
     path('modif_post/<id>', views.modif_post, name='modif_post'),
-    path('nouveau_commentaire/<id>', views.nouveau_commentaire, name='nouveau_commentaire')
+    path('nouveau_commentaire/<id>', views.nouveau_commentaire, name='nouveau_commentaire'),
+    path('abonnement/<id>', views.abonnement, name='abonnement')
 ]

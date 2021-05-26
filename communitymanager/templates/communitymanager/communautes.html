@@ -19,7 +19,8 @@
 <h2> Voici la liste des communautés auxquelles vous pouvez vous abonner </h2>
 
 {% for communaute in other_communities %}
-    <a href="{%  url 'communaute' communaute.id %}"> <li>{{ communaute }} </li> </a>   S'abonner
+    <a href="{%  url 'communaute' communaute.id %}"> <li>{{ communaute }} </li> </a>
+    <a href="{%  url 'abonnement' communaute.id %}">   S'abonner </a>
 {% endfor %}
 
 
