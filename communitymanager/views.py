@@ -40,22 +40,26 @@ def post(request, id):
 
 
 @login_required
-def nouveau_post(request):
+def nouveau_post(request, id):
     form = PostForm(request.POST or None)
+
+    communaute = get_object_or_404(Communaute, id=id)
+    auteur = request.user
 
     if form.is_valid():
         titre = form.cleaned_data['titre']
         priorite = form.cleaned_data['priorite']
         description = form.cleaned_data['description']
-        auteur = form.cleaned_data['auteur']
         evenementiel = form.cleaned_data['evenementiel']
         date_creation = form.cleaned_data['date_creation']
         date_evenement = form.cleaned_data['date_evenement']
-        communaute = form.cleaned_data['communaute']
 
-        # envoi = True
+        post = form.save(commit=False)
 
-        post = form.save(commit=True)
+        post.communaute = communaute
+        post.auteur = auteur
+
+        post.save()
 
         return redirect('post', post.id)
 
