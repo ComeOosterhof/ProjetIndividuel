@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Page du fil d'actualité {%  endblock %}
+
+{%  block content %}
 
 <h1> Voici votre fil d'actualité </h1>
 
@@ -21,7 +19,4 @@ On
 {{ post.date_creation }} &nbsp;&nbsp;</li>
 {%  endfor %}
 
-
-
-</body>
-</html>
+{%  endblock %}

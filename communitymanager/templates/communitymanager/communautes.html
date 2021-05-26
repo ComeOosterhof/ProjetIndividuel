@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Liste des communautés {%  endblock %}
+
+{%  block content %}
 
 <h1>Voici la liste des communautés disponibles</h1>
 
@@ -27,7 +25,4 @@
 
 </ul>
 
-
-
-</body>
-</html>
+{% endblock %}

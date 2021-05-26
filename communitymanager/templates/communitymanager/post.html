@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Page d'affichage d'un post {%  endblock %}
+
+{%  block content %}
 
 {{ post.titre }} &nbsp;&nbsp;
 {{ post.description }} &nbsp;&nbsp;
@@ -37,5 +35,4 @@ On
 <a href="{%  url 'nouveau_commentaire' post.id %}" > Ajouter un commentaire </a>
 
 
-</body>
-</html>
+{%  endblock %}

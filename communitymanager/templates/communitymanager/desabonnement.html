@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Page de desabonnement {%  endblock %}
+
+{%  block content %}
 
 Vous êtes bien désabonné de la communauté {{ communaute }}, vous ne verrez plus ses posts dans votre fil d'actualité.
 
 <a href = {%  url "communautes" %}> Retourner à la liste des communautés </a>
 
-</body>
-</html>
+{%  endblock %}

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Page d'abonnement {%  endblock %}
+
+{%  block content %}
+
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
 {{ form }}
 <input type="submit" value="login">
 <input type="hidden" name="next" value="{{ next }}">
 </form>
-</body>
-</html>
+
+{%  endblock %}
