@@ -1,3 +1,5 @@
+<!--Ce template correspond à l'affichage d'un post, avec les informations sur le post et la liste des commentaires-->
+
 {% extends "base.html" %}
 
 {% block title %} Page d'affichage d'un post {%  endblock %}
@@ -13,6 +15,7 @@ By
 On
 {{ post.date_creation }} &nbsp;&nbsp;
 
+<!--Un utilisateur ne peut modifier un post que s'il en est l'auteur-->
 {% if utilisateur  == auteur %}
 
     <a href="{%  url 'modif_post' post.id %}" > Modifier le post </a>
@@ -25,6 +28,8 @@ On
     {% for commentaire in commentaires %}
         <p>
         <li>{{ commentaire.auteur }} {{ commentaire.contenu }} </li> posté le {{ commentaire.date_creation }} par {{ commentaire.auteur }}
+
+        <!--Un utilisateur ne peut modifier un commentaire que s'il en est l'auteur-->
         {% if commentaire.auteur == utilisateur %}
             <a href="{%  url 'modif_commentaire' commentaire.id %}" > Modifier le commentaire </a>
         {% endif %}

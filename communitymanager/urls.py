@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# Pour simplifier, j'ai donné le même nom à chaque fois au modèle d'URL et à la vue correspondante
 urlpatterns = [
     path('communautes', views.communautes, name='communautes'),
     path('communaute/<id>', views.communaute, name='communaute'),

@@ -5,6 +5,7 @@ from django.utils import timezone
 
 # Create your models here.
 
+# Le modèle correspondant à une communauté
 class Communaute(models.Model):
     nom = models.CharField(max_length=30)
     abonnes = models.ManyToManyField(User)
@@ -13,6 +14,7 @@ class Communaute(models.Model):
         return self.nom
 
 
+# La priorité est un attribut possible d'un post
 class Priorite(models.Model):
     label = models.CharField(max_length=50)
 
@@ -20,6 +22,7 @@ class Priorite(models.Model):
         return self.label
 
 
+# Le modèle correspondant à un post
 class Post(models.Model):
     titre = models.CharField(max_length=50, default='title')
     priorite = models.ForeignKey('Priorite', on_delete=models.CASCADE)
@@ -32,12 +35,15 @@ class Post(models.Model):
 
     class Meta:
         verbose_name = "post"
+
+        # On choisit d'ordonner les posts par date de création
         ordering = ['date_creation']
 
     def __str__(self):
         return self.titre
 
 
+# Le modèle correspondant à un commentaire
 class Commentaire(models.Model):
     contenu = models.TextField(null=True)
     date_creation = models.DateTimeField(default=timezone.now, verbose_name="Date de création")

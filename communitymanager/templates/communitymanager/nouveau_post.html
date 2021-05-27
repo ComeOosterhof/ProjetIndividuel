@@ -1,9 +1,12 @@
+<!--Ce template correspond à la page de création d'un nouveau post-->
+
 {% extends "base.html" %}
 
 {% block title %} Page de saisie d'un nouveau post {%  endblock %}
 
 {%  block content %}
 
+<!--Le formulaire de création du nouveau post-->
 <form action="{% url "nouveau_post" communaute.id %}" method="post">
 {% csrf_token %}
  {{ form.as_p }}

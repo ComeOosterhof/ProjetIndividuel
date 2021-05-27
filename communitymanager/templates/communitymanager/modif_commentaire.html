@@ -1,9 +1,13 @@
+<!--Ce template correspond à la page de modification d'un commentaire-->
+
 {% extends "base.html" %}
 
 {% block title %} Page de modification d'un commentaire {%  endblock %}
 
 {%  block content %}
 
+
+<!--Le formulaire de modification-->
 <form action="{% url "modif_commentaire" commentaire.id %}" method="post">
 {% csrf_token %}
  {{ form.as_p }}
