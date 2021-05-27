@@ -1,0 +1,187 @@
+- model: communitymanager.communaute
+  pk: 1
+  fields:
+    nom: communaute1
+    abonnes:
+    - 1
+    - 2
+    - 4
+    - 5
+- model: communitymanager.communaute
+  pk: 2
+  fields:
+    nom: communaute2
+    abonnes:
+    - 1
+    - 3
+    - 4
+    - 5
+- model: communitymanager.communaute
+  pk: 3
+  fields:
+    nom: communaute3
+    abonnes:
+    - 1
+    - 4
+    - 5
+- model: communitymanager.priorite
+  pk: 1
+  fields:
+    label: blanche
+- model: communitymanager.priorite
+  pk: 2
+  fields:
+    label: jaune
+- model: communitymanager.priorite
+  pk: 3
+  fields:
+    label: orange
+- model: communitymanager.priorite
+  pk: 4
+  fields:
+    label: rouge
+- model: communitymanager.priorite
+  pk: 5
+  fields:
+    label: ecarlate
+- model: communitymanager.post
+  pk: 1
+  fields:
+    titre: titre1
+    priorite: 2
+    description: redirection ?
+    auteur: 2
+    evenementiel: true
+    date_creation: 2021-05-24 13:07:17+00:00
+    date_evenement: 2021-05-24 18:00:00+00:00
+    communaute: 1
+- model: communitymanager.post
+  pk: 2
+  fields:
+    titre: titre2
+    priorite: 2
+    description: description2
+    auteur: 3
+    evenementiel: true
+    date_creation: 2021-05-24 13:07:30+00:00
+    date_evenement: 2021-05-24 18:00:00+00:00
+    communaute: 2
+- model: communitymanager.post
+  pk: 3
+  fields:
+    titre: titre3
+    priorite: 3
+    description: description3
+    auteur: 4
+    evenementiel: true
+    date_creation: 2021-05-24 13:08:06+00:00
+    date_evenement: 2021-05-24 18:00:00+00:00
+    communaute: 3
+- model: communitymanager.post
+  pk: 4
+  fields:
+    titre: title4
+    priorite: 5
+    description: blabla
+    auteur: 1
+    evenementiel: true
+    date_creation: 2021-05-24 15:36:21+00:00
+    date_evenement: 2021-05-24 15:36:21+00:00
+    communaute: 2
+- model: communitymanager.post
+  pk: 5
+  fields:
+    titre: title_test
+    priorite: 3
+    description: lljjioilj
+    auteur: 2
+    evenementiel: true
+    date_creation: 2021-05-24 16:39:53+00:00
+    date_evenement: 2021-05-24 16:39:53+00:00
+    communaute: 2
+- model: communitymanager.post
+  pk: 6
+  fields:
+    titre: title_3
+    priorite: 2
+    description: liilli
+    auteur: 2
+    evenementiel: true
+    date_creation: 2021-05-24 16:56:05+00:00
+    date_evenement: 2021-05-24 16:56:05+00:00
+    communaute: 2
+- model: communitymanager.post
+  pk: 7
+  fields:
+    titre: title_9
+    priorite: 2
+    description: oipp
+    auteur: 2
+    evenementiel: true
+    date_creation: 2021-05-24 17:09:57+00:00
+    date_evenement: 2021-05-24 17:09:57+00:00
+    communaute: 3
+- model: communitymanager.post
+  pk: 8
+  fields:
+    titre: title_10
+    priorite: 3
+    description: illu
+    auteur: 2
+    evenementiel: true
+    date_creation: 2021-05-24 17:12:36+00:00
+    date_evenement: 2021-05-24 17:12:36+00:00
+    communaute: 2
+- model: communitymanager.post
+  pk: 9
+  fields:
+    titre: patush
+    priorite: 4
+    description: chaton
+    auteur: 1
+    evenementiel: false
+    date_creation: 2021-05-26 18:15:52+00:00
+    date_evenement: 2021-05-26 18:15:52+00:00
+    communaute: 3
+- model: communitymanager.commentaire
+  pk: 1
+  fields:
+    contenu: Excellent post, user1 !
+    date_creation: 2021-05-24 15:01:39+00:00
+    auteur: 1
+    post: 1
+- model: communitymanager.commentaire
+  pk: 2
+  fields:
+    contenu: Excellent post, user2 !
+    date_creation: 2021-05-24 15:02:16+00:00
+    auteur: 1
+    post: 2
+- model: communitymanager.commentaire
+  pk: 3
+  fields:
+    contenu: Bof bof ce post, user3...
+    date_creation: 2021-05-24 15:02:25+00:00
+    auteur: 1
+    post: 3
+- model: communitymanager.commentaire
+  pk: 4
+  fields:
+    contenu: blablabli
+    date_creation: 2021-05-25 10:27:38.597139+00:00
+    auteur: 2
+    post: 1
+- model: communitymanager.commentaire
+  pk: 5
+  fields:
+    contenu: "Je suis le premier \xE0 commenter !"
+    date_creation: 2021-05-26 17:45:25.870467+00:00
+    auteur: 1
+    post: 7
+- model: communitymanager.commentaire
+  pk: 6
+  fields:
+    contenu: ceci est un commentaire
+    date_creation: 2021-05-26 17:47:16.586411+00:00
+    auteur: 1
+    post: 8
